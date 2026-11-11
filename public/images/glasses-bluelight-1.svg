@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" fill="#EFF6FF" rx="16"/>
+  <text x="150" y="80" font-family="Arial" font-size="12" fill="#94A3B8" text-anchor="middle">Blue-light</text>
+  <rect x="55" y="120" width="88" height="62" rx="12" stroke="#1560F5" stroke-width="5" fill="#1560F5" opacity="0.08"/>
+  <rect x="157" y="120" width="88" height="62" rx="12" stroke="#1560F5" stroke-width="5" fill="#1560F5" opacity="0.08"/>
+  <line x1="143" y1="151" x2="157" y2="151" stroke="#1560F5" stroke-width="4"/>
+  <line x1="55" y1="138" x2="30" y2="126" stroke="#1560F5" stroke-width="4" stroke-linecap="round"/>
+  <line x1="245" y1="138" x2="270" y2="126" stroke="#1560F5" stroke-width="4" stroke-linecap="round"/>
+  <!-- Blue tint indicator -->
+  <rect x="65" y="130" width="68" height="42" rx="8" fill="#1560F5" opacity="0.12"/>
+  <rect x="167" y="130" width="68" height="42" rx="8" fill="#1560F5" opacity="0.12"/>
+  <text x="150" y="240" font-family="Arial" font-size="13" fill="#1560F5" text-anchor="middle" font-weight="bold">Focus Blue-Light</text>
+  <text x="150" y="260" font-family="Arial" font-size="12" fill="#64748B" text-anchor="middle">$109.99</text>
+</svg>

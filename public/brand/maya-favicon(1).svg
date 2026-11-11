@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#1560F5"/>
+  <!--
+    Scale the icon mark (original bounding box roughly x=54 y=0 w=270 h=400)
+    into 56x56 centered in 64x64:
+    scale = 56/400 = 0.14
+    tx to center: (64 - 270*0.14)/2 - 54*0.14 = (64-37.8)/2 - 7.56 = 13.1 - 7.56 = 5.5
+    ty: (64 - 400*0.14)/2 = (64-56)/2 = 4
+  -->
+  <g transform="translate(4, 2) scale(0.138) translate(-54, -6)">
+
+    <!-- Hand (white) -->
+    <path fill="white" d="M 72 268 C 68 246 70 220 84 204 C 76 190 76 168 92 156 C 84 140 88 118 106 110 C 100 92 112 76 132 76 C 136 60 150 50 168 54 C 170 38 178 18 192 8 C 204 -2 220 0 228 12 C 236 22 234 38 228 52 L 220 76 C 232 64 250 64 260 76 C 270 88 268 106 256 114 L 248 118 L 254 92 C 258 78 272 70 286 76 C 300 82 306 98 300 112 L 274 202 C 294 198 314 212 314 232 C 314 250 300 264 282 262 L 258 260 C 244 294 218 316 186 326 C 166 334 142 338 120 332 C 96 326 76 302 72 278 Z"/>
+    <path fill="white" d="M 72 268 C 60 258 54 240 58 222 C 62 204 78 194 94 198 C 86 212 82 228 84 244 Z"/>
+
+    <!-- Face circle -->
+    <circle cx="224" cy="296" r="106" stroke="white" stroke-width="14" fill="none"/>
+
+    <!-- Eye -->
+    <circle cx="174" cy="258" r="36" fill="#1560F5"/>
+    <circle cx="174" cy="258" r="24" fill="white"/>
+    <circle cx="174" cy="258" r="11" fill="#1560F5"/>
+    <circle cx="178" cy="254" r="4.5" fill="white"/>
+
+    <!-- Wink -->
+    <path d="M 262 256 Q 282 243 302 256" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+    <!-- Smile -->
+    <path d="M 148 332 Q 224 388 300 332" stroke="white" stroke-width="11" stroke-linecap="round" fill="none"/>
+
+  </g>
+</svg>

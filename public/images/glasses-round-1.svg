@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" fill="#EFF6FF" rx="16"/>
+  <text x="150" y="80" font-family="Arial" font-size="12" fill="#94A3B8" text-anchor="middle">Round</text>
+  <circle cx="105" cy="150" r="52" stroke="#1560F5" stroke-width="6" fill="#1560F5" opacity="0.1"/>
+  <circle cx="195" cy="150" r="52" stroke="#1560F5" stroke-width="6" fill="#1560F5" opacity="0.1"/>
+  <line x1="157" y1="150" x2="143" y2="150" stroke="#1560F5" stroke-width="4"/>
+  <line x1="53" y1="140" x2="30" y2="132" stroke="#1560F5" stroke-width="4" stroke-linecap="round"/>
+  <line x1="247" y1="140" x2="270" y2="132" stroke="#1560F5" stroke-width="4" stroke-linecap="round"/>
+  <text x="150" y="240" font-family="Arial" font-size="13" fill="#1560F5" text-anchor="middle" font-weight="bold">Circle Classic</text>
+  <text x="150" y="260" font-family="Arial" font-size="12" fill="#64748B" text-anchor="middle">$74.99</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" fill="#EFF6FF" rx="16"/>
+  <text x="150" y="80" font-family="Arial" font-size="12" fill="#94A3B8" text-anchor="middle">Sport</text>
+  <path d="M40 150 Q80 115 148 128 L148 168 Q80 178 40 165 Z" stroke="#1560F5" stroke-width="5" fill="#1560F5" opacity="0.15" stroke-linejoin="round"/>
+  <path d="M260 150 Q220 115 152 128 L152 168 Q220 178 260 165 Z" stroke="#1560F5" stroke-width="5" fill="#1560F5" opacity="0.15" stroke-linejoin="round"/>
+  <line x1="148" y1="148" x2="152" y2="148" stroke="#1560F5" stroke-width="5"/>
+  <text x="150" y="240" font-family="Arial" font-size="13" fill="#1560F5" text-anchor="middle" font-weight="bold">Sprint Sport</text>
+  <text x="150" y="260" font-family="Arial" font-size="12" fill="#64748B" text-anchor="middle">$129.99</text>
+</svg>
