@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/hooks/use-cart";
 import type { Product } from "@/types/product";
 import { cn } from "@/lib/utils";
+import { ProductViewerPanel } from "@/components/product/ProductViewerPanel";
+import { TryOnModal } from "@/components/tryon/TryOnModal";
 
 interface ProductDetailProps {
   product: Product;
@@ -15,6 +16,7 @@ interface ProductDetailProps {
 export function ProductDetail({ product }: ProductDetailProps): React.JSX.Element {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const [tryOnOpen, setTryOnOpen] = useState(false);
 
   const handleAddToCart = (): void => {
     addItem(product);
@@ -36,41 +38,10 @@ export function ProductDetail({ product }: ProductDetailProps): React.JSX.Elemen
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-        {/* ── Left: image + 3D placeholder ── */}
+        {/* ── Left: interactive 3D viewer ── */}
         <div className="flex flex-col gap-4">
-          <div className="relative aspect-square rounded-[1.5rem] overflow-hidden bg-brand-50 dark:bg-neutral-800 border border-brand-100 dark:border-neutral-700">
-            <Image
-              src={product.image_url}
-              alt={product.name}
-              fill
-              className="object-contain p-8"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-          </div>
-
-          {/* 3D viewer / try-on placeholder */}
-          <div
-            className={cn(
-              "rounded-[1.5rem] border-2 border-dashed border-brand-200 dark:border-neutral-700",
-              "bg-brand-50/50 dark:bg-neutral-800/50",
-              "flex flex-col items-center justify-center gap-3 p-8 text-center min-h-[180px]"
-            )}
-            aria-label="3D viewer placeholder — coming soon"
-          >
-            <span className="text-4xl" aria-hidden="true">🥽</span>
-            <div>
-              <p className="font-semibold text-brand-600 dark:text-brand-300 text-sm">3D Viewer &amp; Virtual Try-On</p>
-              <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
-                Interactive 3D model and webcam try-on will appear here in a future release.
-              </p>
-            </div>
-            <span className="text-[10px] font-bold bg-brand-100 dark:bg-neutral-700 text-brand-600 dark:text-brand-300 px-3 py-1 rounded-full uppercase tracking-wide">
-              Coming Soon
-            </span>
-          </div>
+          <ProductViewerPanel product={product} />
         </div>
-
         {/* ── Right: product info ── */}
         <div className="flex flex-col gap-6 lg:py-4">
           <div>
@@ -115,6 +86,14 @@ export function ProductDetail({ product }: ProductDetailProps): React.JSX.Elemen
             ))}
           </ul>
 
+          <button
+            type="button"
+            onClick={() => setTryOnOpen(true)}
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 active:scale-95 active:bg-brand-700"
+          >
+            <span aria-hidden="true">📷</span>
+            Try it on virtually
+          </button>
           <div className="flex flex-col sm:flex-row gap-3 mt-2">
             <button
               onClick={handleAddToCart}
@@ -153,6 +132,7 @@ export function ProductDetail({ product }: ProductDetailProps): React.JSX.Elemen
           </div>
         </div>
       </div>
+    {tryOnOpen && <TryOnModal product={product} onClose={() => setTryOnOpen(false)} />}
     </main>
   );
 }

@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/hooks/use-cart";
 import type { Product } from "@/types/product";
 import { cn } from "@/lib/utils";
+import { ProductHoverPreview } from "@/components/catalog/ProductHoverPreview";
 
 interface ProductCardProps {
   product: Product;
@@ -13,6 +14,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps): React.JSX.Element {
   const { addItem } = useCart();
+  const [hovering, setHovering] = useState(false);
 
   return (
     <article className="group relative flex flex-col bg-white dark:bg-neutral-800 rounded-[1.25rem] border border-neutral-100 dark:border-neutral-700 hover:border-brand-200 dark:hover:border-brand-700 hover:shadow-lg dark:hover:shadow-brand-900/30 transition-all overflow-hidden">
@@ -23,24 +25,29 @@ export function ProductCard({ product }: ProductCardProps): React.JSX.Element {
         </span>
       </div>
 
-      {/* Product image */}
-      <Link
-        href={`/products/${product.slug}`}
-        className="block aspect-square bg-brand-50 dark:bg-neutral-900 overflow-hidden rounded-t-[1.25rem]"
-        aria-label={`View ${product.name}`}
+      {/* Product image; a live 3D preview takes over while hovered (mouse only) */}
+      <div
+        className="relative aspect-square bg-brand-50 dark:bg-neutral-900 overflow-hidden rounded-t-[1.25rem]"
+        onPointerEnter={(e) => {
+          if (e.pointerType === "mouse") setHovering(true);
+        }}
+        onPointerLeave={() => setHovering(false)}
       >
-        <Image
-          src={product.image_url}
-          alt={product.name}
-          width={300}
-          height={300}
-          className={cn(
-            "w-full h-full object-contain p-4",
-            "group-hover:scale-105 transition-transform duration-300"
-          )}
-        />
-      </Link>
-
+        <Link
+          href={`/products/${product.slug}`}
+          className="block h-full w-full"
+          aria-label={`View ${product.name}`}
+        >
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            width={300}
+            height={300}
+            className="w-full h-full object-contain p-4"
+          />
+        </Link>
+        {hovering && <ProductHoverPreview product={product} />}
+      </div>
       {/* Info */}
       <div className="flex flex-col flex-1 p-4 gap-2">
         <Link href={`/products/${product.slug}`}>
